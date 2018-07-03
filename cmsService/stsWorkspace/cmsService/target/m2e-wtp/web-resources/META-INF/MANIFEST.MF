@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: cmsService
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: yogesh
+Implementation-Vendor-Id: com.tcs
+Build-Jdk: 1.8.0_141
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/cmsService
+Created-By: Maven Integration for Eclipse
+
