@@ -3,6 +3,7 @@ package com.tcs.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,14 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tcs.dao.inf.StudentOperationsDao;
 import com.tcs.request.LoginDetails;
 import com.tcs.response.CustomResponse;
+import javax.transaction.Transactional;
 
 @RestController
-
+@Transactional
 public class LoginController {
 	
-	
+	@Autowired
+	StudentOperationsDao studentOperationsDao;
 	
 	@RequestMapping(method = RequestMethod.POST, value= "/login")
 	public  ResponseEntity<?> methodGetStudent(@RequestBody LoginDetails b) {
@@ -51,6 +55,13 @@ public class LoginController {
 	
 
 	
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value= "/testService")
+	public  ResponseEntity<?> testService() {
+		System.out.println("inside testService");
+		studentOperationsDao.getStudents();
+		return new ResponseEntity<>("hello", HttpStatus.OK);
 	}
 }
 	
